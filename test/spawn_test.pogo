@@ -1,4 +1,5 @@
 spawn = require '../spawn.js'.spawn
+os = require 'os'
 
 describe 'spawn'
 
@@ -16,6 +17,6 @@ describe 'spawn'
 
         spawned.on 'exit' @(code)
             self.stderr.should.equal ""
-            self.stdout.should.equal "zomg\n"
+            self.stdout.should.equal ("zomg" + os.EOL)
             code.should.equal 0
             done()
