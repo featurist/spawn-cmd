@@ -1,0 +1,21 @@
+{
+  "name": "spawn-cmd",
+  "version": "0.0.1",
+  "description": "Wraps child_process.spawn with 'cmd /c <command>' when it's a windows machine",
+  "main": "spawn.js",
+  "scripts": {
+    "test": "node_modules/.bin/pogo -c ./spawn.pogo && node_modules/.bin/mocha ./test/spawn_test.pogo"
+  },
+  "repository": "https://github.com/featurist/spawn-cmd.git",
+  "keywords": [
+    "windows",
+    "child_process"
+  ],
+  "author": "@joshski",
+  "license": "BSD",
+  "devDependencies": {
+    "should": "~2.1.0",
+    "mocha": "~1.14.0",
+    "pogo": "~0.6.2"
+  }
+}
