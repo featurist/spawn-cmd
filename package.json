@@ -1,6 +1,6 @@
 {
   "name": "spawn-cmd",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Wraps child_process.spawn with 'cmd /c <command>' when it's a windows machine",
   "main": "spawn.js",
   "scripts": {
