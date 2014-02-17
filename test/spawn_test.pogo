@@ -31,3 +31,12 @@ describe 'spawn'
 
         it 'passes arguments with spaces to batch file' @(done)
             spawn and wait for ('test\test-args', ['a b', 'cd', 'e f'], r/ok/, done)
+
+        it 'spawns a batch file with spaces and some simple arguments' @(done)
+            spawn and wait for ('test\test spaces', ['a'], r/ok/, done)
+
+        it 'spawns a batch file with spaces with no arguments' @(done)
+            spawn and wait for ('test\test spaces', [], r/ok/, done)
+
+        it 'passes arguments with spaces to a batch file with spaces' @(done)
+            spawn and wait for ('test\test spaces args.cmd', ['a', 'b c', 'd e', 'fg', 'h i'], r/ok/, done)
