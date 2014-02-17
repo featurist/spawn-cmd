@@ -4,7 +4,7 @@
   "description": "Wraps child_process.spawn with 'cmd /c <command>' when it's a windows machine",
   "main": "spawn.js",
   "scripts": {
-    "test": "pogo -c ./spawn.pogo && mocha ./test/spawn_test.pogo"
+    "test": "(gcc test/argv.c -o test/argv || cl test/argv.c /Fotest/argv) && pogo -c ./spawn.pogo && mocha ./test/spawn_test.pogo"
   },
   "repository": "https://github.com/featurist/spawn-cmd.git",
   "keywords": [
