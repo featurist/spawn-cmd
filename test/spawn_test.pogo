@@ -2,12 +2,11 @@ spawn = require '../spawn.js'.spawn
 os = require 'os'
 
 describe 'spawn'
-
-    it 'spawns a process' @(done)
+    spawn and wait for (command, args, match, done) =
         stdout = ''
         stderr = ''
 
-        spawned = spawn('echo', ['zomg'])
+        spawned = spawn(command, args)
 
         spawned.stdout.on "data" @(data)
             stdout := stdout + data.toString()
@@ -18,7 +17,10 @@ describe 'spawn'
         spawned.on 'exit' @(code)
             set timeout
               stderr.should.equal ""
-              stdout.should.match r/zomg/
+              stdout.should.match(match)
               code.should.equal 0
               done()
             1
+
+    it 'spawns a process' @(done)
+        spawn and wait for ('echo', ['zomg'], r/zomg/, done)
