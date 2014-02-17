@@ -24,3 +24,7 @@ describe 'spawn'
 
     it 'spawns a process' @(done)
         spawn and wait for ('echo', ['zomg'], r/zomg/, done)
+
+    if (process.platform == 'win32')
+        it 'spawns a batch file' @(done)
+            spawn and wait for ('test\\test-batch', ['2', '3', '9'], r/2\r\n5\r\n8\r\n/, done)
