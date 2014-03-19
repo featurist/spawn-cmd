@@ -1,5 +1,7 @@
 # spawn-cmd
 
+[![Build Status](https://travis-ci.org/featurist/spawn-cmd.png)](https://travis-ci.org/featurist/spawn-cmd)
+
 child_process.spawn ignores PATHEXT on Windows:
 
 https://github.com/joyent/node/issues/2318
