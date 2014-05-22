@@ -1,7 +1,7 @@
 {
   "name": "spawn-cmd",
-  "version": "0.0.2",
-  "description": "Wraps child_process.spawn with 'cmd /c <command>' when it's a windows machine",
+  "version": "0.0.3",
+  "description": "Wraps child_process.spawn with 'cmd /s /c <command>' and proper arguments escaping when it's a windows machine",
   "main": "spawn.js",
   "scripts": {
     "test": "(gcc test/argv.c -o test/argv || cl test/argv.c /Fotest/argv) && pogo -c ./spawn.pogo && mocha ./test/spawn_test.pogo"
@@ -12,6 +12,7 @@
     "child_process"
   ],
   "author": "@joshski",
+  "contributors": ["@joshski", "@yeputons"],
   "license": "BSD",
   "devDependencies": {
     "should": "~2.1.0",
