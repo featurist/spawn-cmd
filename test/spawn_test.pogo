@@ -1,5 +1,6 @@
 spawn = require '../spawn.js'.spawn
 os = require 'os'
+path = require 'path'
 
 describe 'spawn'
     spawn and wait for (command, args, match, done) =
@@ -26,10 +27,10 @@ describe 'spawn'
         spawn and wait for ('echo', ['zomg'], r/zomg/, done)
 
     it 'escapes quotes and slashes properly' @(done)
-        spawn and wait for ('test\argv', ['a', 'b"c', 'd\g', 'h"" i'], r/argc=5\r\n1 a\r\n2 b"c\r\n3 d\\g\r\n4 h"" i\r\n/, done)
+        spawn and wait for (path.normalize('test/argv'), ['a', 'b"c', 'd\g', 'h"" i'], @new RegExp(['argc=5', '1 a', '2 b"c', '3 d\\g', '4 h"" i'].join(os.EOL)), done)
 
     it 'escapes empty arguments properly' @(done)
-        spawn and wait for ('test\argv', ['a', '', 'c'], r/argc=4\r\n1 a\r\n2 \r\n3 c\r\n/, done)
+        spawn and wait for (path.normalize('test/argv'), ['a', '', 'c'], @new RegExp(['argc=4', '1 a', '2 ', '3 c'].join(os.EOL)), done)
 
     if (process.platform == 'win32')
         it 'spawns a batch file' @(done)
