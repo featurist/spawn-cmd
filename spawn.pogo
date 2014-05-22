@@ -4,7 +4,7 @@ spawn = require 'child_process'.spawn
 // This function is a direct copy
 escape argument (arg) =
     if (arg == "")
-        ""
+        '""'
     else if (!r/[ \t"]/.test(arg))
         arg
     else if (!r/[\\"]/.test(arg))

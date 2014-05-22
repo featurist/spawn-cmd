@@ -5,7 +5,7 @@
     escapeArgument = function(arg) {
         var res, i, quote_hit;
         if (arg === "") {
-            return "";
+            return '""';
         } else if (!/[ \t"]/.test(arg)) {
             return arg;
         } else if (!/[\\"]/.test(arg)) {
