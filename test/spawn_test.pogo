@@ -28,6 +28,9 @@ describe 'spawn'
     it 'escapes quotes and slashes properly' @(done)
         spawn and wait for ('test\argv', ['a', 'b"c', 'd\g', 'h"" i'], r/argc=5\r\n1 a\r\n2 b"c\r\n3 d\\g\r\n4 h"" i\r\n/, done)
 
+    it 'escapes empty arguments properly' @(done)
+        spawn and wait for ('test\argv', ['a', '', 'c'], r/argc=4\r\n1 a\r\n2 \r\n3 c\r\n/, done)
+
     if (process.platform == 'win32')
         it 'spawns a batch file' @(done)
             spawn and wait for ('test\test-batch', ['2', '3', '9'], r/2\r\n5\r\n8\r\n/, done)
